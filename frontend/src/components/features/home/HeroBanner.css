@@ -1,0 +1,154 @@
+.hero-banner {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+    height: 100%;
+    min-height: 400px;
+    /* Match sidebar height approx */
+    position: relative;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* Decorative circles/confetti simulation */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.2) 2px, transparent 3px),
+        radial-gradient(circle at 30% 60%, rgba(255, 215, 0, 0.2) 3px, transparent 4px),
+        radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.2) 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.2) 4px, transparent 5px),
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.5) 100px, transparent 200px);
+    /* Glow */
+    pointer-events: none;
+}
+
+.banner-content {
+    text-align: center;
+    z-index: 2;
+    width: 50%;
+}
+
+.banner-title-small {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.banner-title-large {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-subtitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.banner-image-container {
+    width: 50%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Simulated product composition */
+.banner-products {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in-animation {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Re-trigger animation on slide change is handled by React re-render of content, 
+   but for smoother transitions often a TransitionGroup is used. 
+   Simple key prop on parent in React often triggers re-mount/animation. 
+   Let's add key-based animation class usage in JSX if needed, 
+   but for now these classes apply on mount. 
+   To animate *on change*, we can key the content div. */
+
+.key-animation {
+    animation: slideUp 0.8s ease-out;
+}
+
+.item-animation {
+    animation: zoomIn 0.8s ease-out;
+}

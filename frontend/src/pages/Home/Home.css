@@ -1,0 +1,48 @@
+.home-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    min-height: 480px;
+    /* Align heights */
+}
+
+.layout-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.layout-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.layout-bestsellers {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .home-layout {
+        flex-direction: column;
+    }
+
+    .layout-sidebar,
+    .layout-bestsellers {
+        display: none;
+        /* As per mobile view simplified */
+    }
+
+    /* For mobile we might want to show them differently, but for exact desktop replication, hiding/stacking is standard */
+    /* Let's stack them for better UX */
+    .layout-sidebar {
+        display: block;
+        width: 100%;
+    }
+
+    .layout-bestsellers {
+        display: block;
+        width: 100%;
+    }
+}

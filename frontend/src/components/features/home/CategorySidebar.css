@@ -1,0 +1,39 @@
+.category-sidebar {
+    background-color: white;
+    border-right: 1px solid #f0f0f0;
+    border: 1px solid #eee;
+    /* width is handled by parent or layout */
+    height: 100%;
+}
+
+.category-list {
+    padding: 10px 0;
+}
+
+.category-item {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-item:hover {
+    background-color: #f5f5f5;
+}
+
+.cat-text {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.see-more {
+    color: var(--primary-color);
+}
